@@ -1,21 +1,44 @@
 import openpyxl
+import re
+import os
 
 # Work main programm
-class Programm_work():
+def main():
+    enemy = Search_number()
+    print(enemy.read_path_file())
+
+class Search_number:
+
+    def __init__(self):
+        self.search_number = re.sub("[^0-9]", "", input("Введите номер: "))
+
+    def read_path_file(self):
+        directory = "/Users/vladislavlipkin/Desktop/data/"
+        for file in os.listdir(directory):
+            if file.endswith(".xlsx"):
+                print(file)
+                book = openpyxl.open(f"/Users/vladislavlipkin/Desktop/data/{file}", read_only=True)
+                sheet = book.active
+
+
+                for row in sheet:
+                    if row[0].value == "$":
+                        equipment_name = str(row[1].value)
+                    number = re.sub("[^0-9]", "", str(row[1].value))
+                    if number == self.search_number:
+                        print(
+                            f"оборудование {equipment_name}, номер телефона {str(row[1].value)}, номер пары"
+                            f" {str(row[0].value)}, "
+                            f"адрес кросс. параллели {str(row[3].value)}")
+
+
+
+class Graphic_interface:
     pass
 
 
-# input processing
-class Input_data():
-    pass
 
-
-class Search_number():
-    pass
-
-
-class Graphic_interface():
-    pass
+main()
 
 
 
@@ -25,14 +48,9 @@ class Graphic_interface():
 
 
 
-
-
-
- 
 
 # book = openpyxl.open("table.xlsx", read_only=True)
-book = openpyxl.open("/Users/vladislavlipkin/Desktop/data/кросс_зд_602,пом_104.xlsx", read_only=True)
-sheet = book.active
+
 
 # phone = input("Введите номер телефона:")
 # convert = ''
@@ -50,7 +68,7 @@ sheet = book.active
 # for row in range(1, 708):
 #     if sheet[row][1].value == convert:
 #         print(f"Строка: {row}")
-
-for row in sheet:
-    if row[0].value == "$":
-        print(row[1].value)
+#
+# for row in sheet:
+#     if row[0].value == "$":
+#         print(row[1].value)
