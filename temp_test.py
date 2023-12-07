@@ -11,27 +11,32 @@ class Search_number:
 
     def __init__(self):
         self.search_number = re.sub("[^0-9]", "", input("Введите номер: "))
+        self.data = {}
+        print(f"По запросу {self.search_number}")
 
     def read_path_file(self):
         directory = "/Users/vladislavlipkin/Desktop/data/"
+
         for file in os.listdir(directory):
             if file.endswith(".xlsx"):
                 print(file)
                 book = openpyxl.open(f"/Users/vladislavlipkin/Desktop/data/{file}", read_only=True)
                 sheet = book.active
 
-
                 for row in sheet:
                     if row[0].value == "$":
+                        # print(f"-{row[0].value}-")
                         equipment_name = str(row[1].value)
                     number = re.sub("[^0-9]", "", str(row[1].value))
                     if number == self.search_number:
-                        print(
-                            f"оборудование {equipment_name}, номер телефона {str(row[1].value)}, номер пары"
-                            f" {str(row[0].value)}, "
-                            f"адрес кросс. параллели {str(row[3].value)}")
+                        self.data[file] = str(
+                            f"оборудование {equipment_name}, номер телефона {str(row[1].value)}, "
+                            f"номер пары {str(row[0].value)}, "
+                            f"адрес кросс.параллели {str(row[2].value)}, "
+                            f"номер помещения {str(row[3].value)}")
 
-
+        return self.data
+# 6-27-74
 
 class Graphic_interface:
     pass
