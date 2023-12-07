@@ -4,8 +4,11 @@ import os
 
 # Work main programm
 def main():
+    #
     enemy = Search_number()
-    print(enemy.read_path_file())
+    enemy.read_path_file()
+
+    print(enemy.output())
 
 class Search_number:
 
@@ -35,7 +38,11 @@ class Search_number:
                             f"адрес кросс.параллели {str(row[2].value)}, "
                             f"номер помещения {str(row[3].value)}")
 
+    def output(self):
         return self.data
+
+
+
 # 6-27-74
 
 class Graphic_interface:
