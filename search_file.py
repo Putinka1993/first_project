@@ -1,8 +1,6 @@
 import openpyxl
 import re
 import os
-import tkinter as tk
-
 
 class Search_number:
 
@@ -47,80 +45,3 @@ class Search_number:
 
 
 
-# 6-27-74
-# 5-17-26
-# 5-41-81
-# 5-14-86
-# 5-55-83
-
-class Graphic_interface:
-    def __init__(self, root):
-        self.root = root
-        self.root.title("Text Input Output App")
-
-        self.input_label = tk.Label(self.root, text="Enter Text:")
-        self.input_label.pack()
-
-        self.input_entry = tk.Entry(self.root)
-        self.input_entry.pack()
-
-        self.submit_button = tk.Button(self.root, text="Submit", command=self.show_output)
-        self.submit_button.pack()
-
-    def show_output(self):
-        input_text = self.input_entry.get()
-        search_number = re.sub("[^0-9]", "", input_text)
-        enemy = Search_number(search_number)
-        enemy.read_path_file()
-        result = enemy.output()
-        for k, v in result.items():
-            output_label = tk.Label(self.root, text=f"название оборудования {k} {v}")
-            output_label.pack()
-
-
-
-
-def main():
-
-    root = tk.Tk()
-    app = Graphic_interface(root)
-    root.mainloop()
-
-    # while 1 != 0:
-    #     graphic = Graphic_interface()
-    #     enemy = Search_number(graphic.search_number)
-    #     enemy.read_path_file()
-    #     enemy.output()
-
-main()
-
-
-
-
-
-
-
-
-# book = openpyxl.open("table.xlsx", read_only=True)
-
-
-# phone = input("Введите номер телефона:")
-# convert = ''
-# flag = True
-# for num in phone:
-#     if flag:
-#         convert += num
-#         convert += "-"
-#         flag = False
-#     else:
-#         convert += num
-#         flag = True
-#
-# convert = convert.rstrip("-")
-# for row in range(1, 708):
-#     if sheet[row][1].value == convert:
-#         print(f"Строка: {row}")
-#
-# for row in sheet:
-#     if row[0].value == "$":
-#         print(row[1].value)
