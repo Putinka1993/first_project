@@ -7,9 +7,9 @@ if __name__ == "__main__":
     h = root.winfo_screenheight()
     w = w // 2  # середина экрана
     h = h // 2
-    w = w - 600  # смещение от середины
+    w = w - 500  # смещение от середины
     h = h - 200
-    root.geometry(f'1200x400+{w}+{h}')
+    root.geometry(f'1000x400+{w}+{h}')
     app = Graphic_interface(root)
     root.mainloop()
 

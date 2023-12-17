@@ -6,8 +6,7 @@ class Search_number:
 
     def __init__(self, search_number):
         self.search_number = search_number#re.sub("[^0-9]", "", input("Введите номер: "))
-        self.data = {}
-        print(f"По запросу {self.search_number}")
+        self.data = []
 
     def read_path_file(self):
         directory = "/Users/vladislavlipkin/Desktop/data/"
@@ -24,21 +23,24 @@ class Search_number:
                     right_number = re.sub("[^0-9]", "", str(row[6].value))
 
                     if left_number == self.search_number:
-                        self.data[f"имя файла - {file} - оборудование - {key_name}"] = str(
+                        #self.data[f"имя файла - {file} - оборудование - {key_name} Л "] = str(
+                        self.data.append(str(
+                            f"( имя файла - {file} ) - оборудование - {key_name} "
                             f"номер телефона {str(row[1].value)}, "
                             f"номер пары {str(row[0].value)}, "
                             f"адрес кросс.параллели {str(row[2].value)}, "
-                            f"номер помещения {str(row[3].value)}")
+                            f"номер помещения {str(row[3].value)}"))
                         # print(file)
                         # print("LEFT")
 
                     if right_number == self.search_number:
-                        self.data[f"имя файла - {file} - оборудование - {key_name}"] = str(
-                            f"название файла {file}"
+                        #self.data[f"имя файла - {file} - оборудование - {key_name} П "] = str(
+                        self.data.append(str(
+                            f"( имя файла - {file} ) - оборудование - {key_name} "
                             f"номер телефона {str(row[6].value)}, "
                             f"номер пары {str(row[5].value)}, "
                             f"адрес кросс.параллели {str(row[7].value)}, "
-                            f"номер помещения {str(row[8].value)}")
+                            f"номер помещения {str(row[8].value)}"))
                         # print(file)
                         # print("RIGHT")
     def output(self):
