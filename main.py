@@ -1,13 +1,18 @@
 from app import Graphic_interface
 import tkinter as tk
 
-def main():
-
+if __name__ == "__main__":
     root = tk.Tk()
+    w = root.winfo_screenwidth()
+    h = root.winfo_screenheight()
+    w = w // 2  # середина экрана
+    h = h // 2
+    w = w - 600  # смещение от середины
+    h = h - 200
+    root.geometry(f'1200x400+{w}+{h}')
     app = Graphic_interface(root)
     root.mainloop()
 
-main()
 
 
 
@@ -18,33 +23,10 @@ main()
 # 5-14-86
 # 5-55-83
 
+# 5-53-83
+# 5-46-03
+
+# 777141
 
 
 
-
-
-
-
-# book = openpyxl.open("table.xlsx", read_only=True)
-
-
-# phone = input("Введите номер телефона:")
-# convert = ''
-# flag = True
-# for num in phone:
-#     if flag:
-#         convert += num
-#         convert += "-"
-#         flag = False
-#     else:
-#         convert += num
-#         flag = True
-#
-# convert = convert.rstrip("-")
-# for row in range(1, 708):
-#     if sheet[row][1].value == convert:
-#         print(f"Строка: {row}")
-#
-# for row in sheet:
-#     if row[0].value == "$":
-#         print(row[1].value)

@@ -22,11 +22,13 @@ class Graphic_interface:
         enemy = Search_number(search_number)
         enemy.read_path_file()
         result = enemy.output()
-        for k, v in result.items():
-            output_label = tk.Label(self.root, text=f"название оборудования {k} {v}")
+        if not result:
+            output_label = tk.Label(self.root, text=f"по запросу {search_number} ничего не найдено!")
             output_label.pack()
-
-
+        else:
+            for k, v in result.items():
+                output_label = tk.Label(self.root, text=f"{k} {v}")
+                output_label.pack()
 
 
 

@@ -24,7 +24,7 @@ class Search_number:
                     right_number = re.sub("[^0-9]", "", str(row[6].value))
 
                     if left_number == self.search_number:
-                        self.data[key_name] = str(
+                        self.data[f"имя файла - {file} - оборудование - {key_name}"] = str(
                             f"номер телефона {str(row[1].value)}, "
                             f"номер пары {str(row[0].value)}, "
                             f"адрес кросс.параллели {str(row[2].value)}, "
@@ -33,7 +33,8 @@ class Search_number:
                         # print("LEFT")
 
                     if right_number == self.search_number:
-                        self.data[key_name] = str(
+                        self.data[f"имя файла - {file} - оборудование - {key_name}"] = str(
+                            f"название файла {file}"
                             f"номер телефона {str(row[6].value)}, "
                             f"номер пары {str(row[5].value)}, "
                             f"адрес кросс.параллели {str(row[7].value)}, "
