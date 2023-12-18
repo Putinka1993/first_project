@@ -24,18 +24,9 @@ class Graphic_interface:
         enemy.read_path_file()
         result = enemy.output()
 
-        if not result:
-            # self.output_text = tk.insert(tk.END, f"По запросу {search_number} ничего не найдено \n")#Label(self.root,
-            # text=f"по запросу {
-            # search_number}
-            # ничего не
-            # найдено!")
-            self.output_text = tk.Label(self.root,text=f"по запросу {search_number}ничего ненайдено!")
+        for row in result:
+            self.output_text.insert(tk.END, f"{row}\n")
             self.output_text.pack()
-        else:
-            for row in result:
-                self.output_text.insert(tk.END, f"{row}\n")
-                self.output_text.pack()
 
 
 
