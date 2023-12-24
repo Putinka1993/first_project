@@ -14,7 +14,7 @@ class Graphic_interface:
         self.input_entry = tk.Entry(self.root)
         self.input_entry.pack()
 
-        self.submit_button = tk.Button(self.root, text="Submit", command=self.show_output)
+        self.submit_button = tk.Button(self.root, text="поиск", command=self.show_output)
         self.submit_button.pack()
         self.output_text = scrolledtext.ScrolledText(self.root, wrap=tk.WORD)
     def show_output(self):

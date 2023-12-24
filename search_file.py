@@ -24,24 +24,28 @@ class Search_number:
 
                     if left_number == self.search_number:
                         self.data.append(str(
-                            f"( имя файла - {file} ) - оборудование - {key_name} "
-                            f"номер телефона {str(row[1].value)}, "
-                            f"номер пары {str(row[0].value)}, "
-                            f"адрес кросс.параллели {str(row[2].value)}, "
-                            f"номер помещения {str(row[3].value)}"))
-
+                            f"номер телефона {str(row[1].value)} - "#номер 
+                            f"расположение {key_name} - "# расположение
+                            f"пара {str(row[0].value)} - "# пара 
+                            f"адрес кросс.параллели {str(row[2].value)} - "# адресс кросс 
+                            f"помещение {str(row[3].value)} - " # помещение 
+                            f"( файла {file} )")) # имя файла
+                        self.data.append(str(""))
 
                     if right_number == self.search_number:
                         self.data.append(str(
-                            f"( имя файла - {file} ) - оборудование - {key_name} "
-                            f"номер телефона {str(row[6].value)}, "
-                            f"номер пары {str(row[5].value)}, "
-                            f"адрес кросс.параллели {str(row[7].value)}, "
-                            f"номер помещения {str(row[8].value)}"))
+                            f"номер телефона {str(row[6].value)} - " # номер
+                            f"расположение {key_name} - "# расположение
+                            f"пара {str(row[5].value)} - "# пара
+                            f"адрес кросс.параллели {str(row[7].value)} - " # адресс кросс
+                            f"помещение {str(row[8].value)} - "# помещение 
+                            f"( файл {file} )")) # имя файла
+                        self.data.append(str(""))
 
     def output(self):
         if len(self.data) == 0:
             self.data.append(f"по запросу {self.search_number} ничего не найдено!")
+            self.data.append(str(""))
         return self.data
 
 
