@@ -4,14 +4,17 @@ import os
 
 class Search_number:
 
+    # initialization
     def __init__(self, search_number):
         self.search_number = search_number
         self.data = []
 
-    def read_path_file(self):
-        directory = "/Users/vladislavlipkin/Desktop/data/"
+        # the root folder
+        self.DIRECTORY = "/Users/vladislavlipkin/Desktop/data/"
 
-        for file in os.listdir(directory):
+    def read_path_file(self):
+
+        for file in os.listdir(self.DIRECTORY):
             if file.endswith(".xlsx"):
                 book = openpyxl.open(f"/Users/vladislavlipkin/Desktop/data/{file}", read_only=True)
                 sheet = book.active
