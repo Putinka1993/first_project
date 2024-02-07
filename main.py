@@ -3,19 +3,8 @@ from app import Window_login_pass
 import tkinter as tk
 
 if __name__ == "__main__":
-
-    # Window login
-    tkWindow = tk.Tk()
-    w = tkWindow.winfo_screenwidth()
-    h = tkWindow.winfo_screenheight()
-    w = w // 2  # середина экрана
-    h = h // 2
-    w = w - 300  # смещение от середины
-    h = h - 200
-    tkWindow.geometry(f'400x150+{w}+{h}')
-    tkWindow.title('- Введите логин и пароль учетной записи -')
-    app_login = Window_login_pass(tkWindow)
-    tkWindow.mainloop()
+    # Start window login
+    Window_login_pass()
 
     # Window programm
     root = tk.Tk()
